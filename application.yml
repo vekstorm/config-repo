@@ -1,0 +1,6 @@
+# Config global compartida — heredada por todos los servicios
+spring:
+  cloud:
+    config:
+      allow-override: true
+      override-none: true

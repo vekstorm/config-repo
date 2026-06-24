@@ -1,0 +1,26 @@
+server:
+  port: 8082
+
+spring:
+  mongodb:
+    representation:
+      uuid: STANDARD
+    uri: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongodb:27017/iotizze_db?authSource=admin
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://authorization-server:9000
+
+base:
+  url: http://authorization-server:9000
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    oauth:
+      client-id: swagger-ui
+      use-pkce-with-authorization-code-grant: true
+  api-docs:
+    path: /api-docs
