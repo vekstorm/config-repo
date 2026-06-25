@@ -2,9 +2,6 @@ server:
   port: 9000
 
 spring:
-  profiles:
-    active: ${SPRING_PROFILES_ACTIVE:dev}
-
   security:
     oauth2:
       client:
@@ -19,7 +16,7 @@ spring:
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
 
   datasource:
-    url: jdbc:postgresql://{AUTH_DB_HOST}:{AUTH_DB_HOST}/{AUTH_DB_NAME}?createDatabaseIfNotExist=true
+    url: jdbc:postgresql://${AUTH_DB_HOST:postgres}:5432/${AUTH_DB_NAME:auth_db}?createDatabaseIfNotExist=true
     username: ${AUTH_DB_USER}
     password: ${AUTH_DB_PASSWORD}
 
