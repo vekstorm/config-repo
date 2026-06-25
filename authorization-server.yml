@@ -40,7 +40,7 @@ logging:
     org.springframework.security.oauth2: DEBUG
 
 base:
-  url: http://authorization-server:9000
+  url: http://authorization-server
 
 defaults:
   admin-role: ROLE_ADMIN
