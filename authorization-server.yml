@@ -53,6 +53,7 @@ defaults:
   client-secret: ${CLIENT_SECRET}
   client-name: OIDC Debugger
   client-scope: openid
+  gateway-client-secret: ${GATEWAY_CLIENT_SECRET:gateway-secret}
   identity-client-secret: ${IDENTITY_CLIENT_SECRET}
   client-credentials-grant-type: client_credentials
   authorization-code-grant-type: authorization_code
