@@ -51,3 +51,8 @@ spring:
             token-uri: http://authorization-server:9000/oauth2/token
             jwk-set-uri: http://authorization-server:9000/oauth2/jwks
             user-name-attribute: sub
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.cloud.gateway: TRACE
