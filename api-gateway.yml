@@ -47,4 +47,7 @@ spring:
             scope: openid, profile
         provider:
           authorization-server:
-            issuer-uri: http://authorization-server:9000
+            authorization-uri: http://localhost:9000/oauth2/authorize
+            token-uri: http://authorization-server:9000/oauth2/token
+            jwk-set-uri: http://authorization-server:9000/oauth2/jwks
+            user-name-attribute: sub
