@@ -4,53 +4,36 @@ server:
 spring:
   cloud:
     gateway:
-      routes:
-        - id: authorization-server
-          uri: http://authorization-server:9000
-          predicates:
-            - Path=/oauth2/**, /login/**, /api-docs/**
-          filters:
-            - StripPrefix=0
+      server:
+        webmvc:
+          routes:
+            - id: devices-api
+              uri: ${DEVICES_INTERNAL_URL:http://localhost:8083}
+              predicates:
+                - Path=/api/v1/devices/**
+              filters:
+                - StripPrefix=0
 
-        - id: devices-api
-          uri: http://devices-api:8083
-          predicates:
-            - Path=/api/v1/devices/**
-          filters:
-            - StripPrefix=0
+            - id: files-api
+              uri: ${FILES_INTERNAL_URL:http://localhost:8084}
+              predicates:
+                - Path=/api/v1/files/**
+              filters:
+                - StripPrefix=0
 
-        - id: files-api
-          uri: http://files-api:8084
-          predicates:
-            - Path=/api/v1/files/**
-          filters:
-            - StripPrefix=0
-
-        - id: subscription
-          uri: http://subscription:8082
-          predicates:
-            - Path=/api/v1/subscriptions/**
-          filters:
-            - StripPrefix=0
+            - id: subscription
+              uri: ${SUBSCRIPTION_INTERNAL_URL:http://localhost:8082}
+              predicates:
+                - Path=/api/v1/subscriptions/**
+              filters:
+                - StripPrefix=0
 
   security:
     oauth2:
-      client:
-        registration:
-          gateway:
-            provider: authorization-server
-            client-id: api-gateway
-            client-secret: ${GATEWAY_CLIENT_SECRET:gateway-secret}
-            client-authentication-method: client_secret_basic
-            authorization-grant-type: authorization_code
-            redirect-uri: "http://localhost:8080/login/oauth2/code/gateway"
-            scope: openid, profile
-        provider:
-          authorization-server:
-            authorization-uri: http://localhost:9000/oauth2/authorize
-            token-uri: http://authorization-server:9000/oauth2/token
-            jwk-set-uri: http://authorization-server:9000/oauth2/jwks
-            user-name-attribute: sub
+      resourceserver:
+        jwt:
+          issuer-uri: ${AUTH_ISSUER_URL:http://localhost:9000}
+          jwk-set-uri: ${AUTH_JWK_SET_URL:http://localhost:9000/oauth2/jwks}
 
 logging:
   level:
