@@ -13,7 +13,7 @@ spring:
             - id: devices-api
               uri: ${DEVICES_INTERNAL_URL:http://localhost:8083}
               predicates:
-                - Path=/api/v1/devices/**
+                - Path=/api/v1/devices/**,/api/v1/scenarios/**
               filters:
                 - StripPrefix=0
 
