@@ -27,7 +27,7 @@ spring:
             - id: subscription
               uri: ${SUBSCRIPTION_INTERNAL_URL:http://localhost:8082}
               predicates:
-                - Path=/api/v1/subscriptions/**
+                - Path=/api/v1/subscriptions/**,/api/v1/subscription-users/**
               filters:
                 - StripPrefix=0
 
