@@ -16,7 +16,7 @@ spring:
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
 
   datasource:
-    url: jdbc:postgresql://${AUTH_DB_HOST:postgres}:5432/${AUTH_DB_NAME:auth_db}?createDatabaseIfNotExist=true
+    url: jdbc:postgresql://${AUTH_DB_HOST:postgres}:${AUTH_DB_PORT:5432}/${AUTH_DB_NAME:auth_db}?createDatabaseIfNotExist=true
     username: ${AUTH_DB_USER}
     password: ${AUTH_DB_PASSWORD}
 
