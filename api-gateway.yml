@@ -37,6 +37,8 @@ spring:
         jwt:
           issuer-uri: ${AUTH_ISSUER_URL:http://localhost:9000}
           jwk-set-uri: ${AUTH_JWK_SET_URL:http://localhost:9000/oauth2/jwks}
+          jwk-set-cache-time-to-live: 60s
+          jwk-set-cache-size: 5
 
 logging:
   level:
