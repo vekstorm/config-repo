@@ -1,0 +1,7 @@
+# Servicio: config-repo
+# Repo:    https://github.com/vekstorm/config-repo.git
+# Rama:    main
+#
+# Necesario para docker-compose.local.yml (config-server en modo native).
+# Tras clonar el repo raíz, clonar aquí:
+#   git clone https://github.com/vekstorm/config-repo.git config-repo
