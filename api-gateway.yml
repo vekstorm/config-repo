@@ -10,11 +10,6 @@ spring:
     gateway:
       server:
         webmvc:
-          trusted-proxies: ${GATEWAY_TRUSTED_PROXIES:^172\.28\.0\.10$}
-          x-forwarded-request-headers-filter:
-            enabled: true
-            proto-enabled: true
-            proto-append: true
           routes:
             - id: devices-api
               uri: ${DEVICES_INTERNAL_URL:http://localhost:8083}
