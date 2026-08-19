@@ -42,6 +42,11 @@ logging:
 base:
   url: ${AUTH_ISSUER_URL:http://localhost:9000}
 
+frontend:
+  main-url: ${FRONTEND_MAIN_URL:http://localhost:4201}
+  identity-url: ${FRONTEND_IDENTITY_URL:http://localhost:4200}
+  allowed-origins: ${AUTH_ALLOWED_ORIGINS:http://localhost:4200,http://localhost:4201,http://localhost:8081}
+
 defaults:
   admin-role: ROLE_ADMIN
   user-role: ROLE_USER
