@@ -1,0 +1,23 @@
+spring:
+  rabbitmq:
+    host: ${IOT_BRIDGE_RABBIT_HOST:rabbitmq}
+    port: ${IOT_BRIDGE_RABBIT_PORT:5672}
+    username: ${IOT_BRIDGE_RABBIT_USERNAME:iotizze}
+    password: ${IOT_BRIDGE_RABBIT_PASSWORD:change-me}
+    virtual-host: ${IOT_BRIDGE_RABBIT_VIRTUAL_HOST:/}
+
+iot:
+  bridge:
+    mqtt:
+      host: ${IOT_BRIDGE_MQTT_HOST:mosquitto}
+      port: ${IOT_BRIDGE_MQTT_PORT:1883}
+      client-id: ${IOT_BRIDGE_MQTT_CLIENT_ID:iot-bridge}
+      username: ${IOT_BRIDGE_MQTT_USERNAME:}
+      password: ${IOT_BRIDGE_MQTT_PASSWORD:}
+      topic-filter: ${IOT_BRIDGE_MQTT_TOPIC_FILTER:/+/events}
+      qos: ${IOT_BRIDGE_MQTT_QOS:1}
+    rabbit:
+      events-exchange: ${IOT_BRIDGE_RABBIT_EVENTS_EXCHANGE:iot.events}
+      inbound-routing-key: ${IOT_BRIDGE_RABBIT_INBOUND_ROUTING_KEY:mqtt.inbound}
+      inbound-queue: ${IOT_BRIDGE_RABBIT_INBOUND_QUEUE:iot.events.inbound}
+      outbound-queue: ${IOT_BRIDGE_RABBIT_OUTBOUND_QUEUE:iot.commands.outbound}

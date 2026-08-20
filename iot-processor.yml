@@ -1,0 +1,16 @@
+spring:
+  rabbitmq:
+    host: ${IOT_PROCESSOR_RABBIT_HOST:rabbitmq}
+    port: ${IOT_PROCESSOR_RABBIT_PORT:5672}
+    username: ${IOT_PROCESSOR_RABBIT_USERNAME:iotizze}
+    password: ${IOT_PROCESSOR_RABBIT_PASSWORD:change-me}
+    virtual-host: ${IOT_PROCESSOR_RABBIT_VIRTUAL_HOST:/}
+
+iot:
+  processor:
+    input-queue: ${IOT_PROCESSOR_INPUT_QUEUE:iot.events.inbound}
+    events-exchange: ${IOT_PROCESSOR_EVENTS_EXCHANGE:iot.events}
+    classified-queue: ${IOT_PROCESSOR_CLASSIFIED_QUEUE:iot.events.classified}
+    invalid-queue: ${IOT_PROCESSOR_INVALID_QUEUE:iot.events.invalid}
+    classified-routing-key: ${IOT_PROCESSOR_CLASSIFIED_ROUTING_KEY:iot.classified}
+    invalid-routing-key: ${IOT_PROCESSOR_INVALID_ROUTING_KEY:iot.invalid}
