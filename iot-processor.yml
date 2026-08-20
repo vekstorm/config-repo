@@ -14,3 +14,5 @@ iot:
     invalid-queue: ${IOT_PROCESSOR_INVALID_QUEUE:iot.events.invalid}
     classified-routing-key: ${IOT_PROCESSOR_CLASSIFIED_ROUTING_KEY:iot.classified}
     invalid-routing-key: ${IOT_PROCESSOR_INVALID_ROUTING_KEY:iot.invalid}
+    devices-api-url: ${IOT_PROCESSOR_DEVICES_API_URL:http://devices-api:8083}
+    devices-api-token: ${DEVICE_INTERNAL_TOKEN:}

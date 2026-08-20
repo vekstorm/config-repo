@@ -2,6 +2,9 @@ server:
   port: 8083
   forward-headers-strategy: framework
 
+device:
+  internal-token: ${DEVICE_INTERNAL_TOKEN:}
+
 spring:
   mongodb:
     representation:

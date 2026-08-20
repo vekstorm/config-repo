@@ -14,7 +14,7 @@ iot:
       client-id: ${IOT_BRIDGE_MQTT_CLIENT_ID:iot-bridge}
       username: ${IOT_BRIDGE_MQTT_USERNAME:}
       password: ${IOT_BRIDGE_MQTT_PASSWORD:}
-      topic-filter: ${IOT_BRIDGE_MQTT_TOPIC_FILTER:/+/events}
+      topic-filter: ${IOT_BRIDGE_MQTT_TOPIC_FILTER:/subscriptions/+/events,/+/events}
       qos: ${IOT_BRIDGE_MQTT_QOS:1}
     rabbit:
       events-exchange: ${IOT_BRIDGE_RABBIT_EVENTS_EXCHANGE:iot.events}
